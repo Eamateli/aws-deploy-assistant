@@ -1,6 +1,5 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
-import { getAWSDocumentationUrl } from '../../assets/aws-icons';
 
 const EnhancedServiceCard = ({ service, isSelected, onClick, showDocLink = true }) => {
   const { name, purpose, cost, category, icon: Icon } = service;
@@ -11,6 +10,26 @@ const EnhancedServiceCard = ({ service, isSelected, onClick, showDocLink = true 
     database: 'border-green-400 bg-green-50 dark:bg-green-900/20',
     networking: 'border-purple-400 bg-purple-50 dark:bg-purple-900/20',
     monitoring: 'border-yellow-400 bg-yellow-50 dark:bg-yellow-900/20'
+  };
+
+  const getAWSDocumentationUrl = (serviceName) => {
+    const serviceMap = {
+      'S3': 'https://docs.aws.amazon.com/s3/',
+      'CloudFront': 'https://docs.aws.amazon.com/cloudfront/',
+      'Lambda': 'https://docs.aws.amazon.com/lambda/',
+      'API Gateway': 'https://docs.aws.amazon.com/apigateway/',
+      'DynamoDB': 'https://docs.aws.amazon.com/dynamodb/',
+      'RDS': 'https://docs.aws.amazon.com/rds/',
+      'EC2': 'https://docs.aws.amazon.com/ec2/',
+      'ECS': 'https://docs.aws.amazon.com/ecs/',
+      'Route53': 'https://docs.aws.amazon.com/route53/',
+      'ALB': 'https://docs.aws.amazon.com/elasticloadbalancing/',
+      'VPC': 'https://docs.aws.amazon.com/vpc/',
+      'IAM': 'https://docs.aws.amazon.com/iam/',
+      'CloudWatch': 'https://docs.aws.amazon.com/cloudwatch/',
+      'Cognito': 'https://docs.aws.amazon.com/cognito/'
+    };
+    return serviceMap[serviceName] || 'https://docs.aws.amazon.com/';
   };
 
   const handleDocumentationClick = (e) => {

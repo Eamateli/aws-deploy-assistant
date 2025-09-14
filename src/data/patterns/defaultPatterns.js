@@ -1,75 +1,63 @@
 /**
- * Default pattern matching rules
- * Fallback patterns when specific framework patterns can't be loaded
+ * Default Pattern Matching Rules
+ * Fallback patterns when specific framework patterns are not available
  */
 
-export const defaultPatterns = {
-  'generic-spa': {
-    name: 'Single Page Application',
-    indicators: {
-      files: ['index.html', 'package.json'],
-      dependencies: ['webpack', 'vite', 'parcel'],
-      content: ['spa', 'single page', 'frontend'],
-      build: ['npm run build', 'yarn build']
-    },
-    confidence_weights: {
-      files: 0.3,
-      dependencies: 0.3,
-      content: 0.3,
-      build: 0.1
-    },
-    architecture_recommendations: ['static-spa'],
-    requirements: {
-      database: 'none',
-      auth: 'optional',
-      realtime: 'none',
-      storage: 'optional'
-    }
+export const patterns = {
+  react: {
+    files: ['package.json', 'src/App.jsx', 'src/App.js', 'public/index.html'],
+    dependencies: ['react', 'react-dom', '@vitejs/plugin-react'],
+    content: ['jsx', 'useState', 'useEffect', 'React.'],
+    confidence: 0.8
   },
-  'generic-api': {
-    name: 'API Application',
-    indicators: {
-      files: ['server.js', 'app.js', 'main.py'],
-      dependencies: ['express', 'fastify', 'flask', 'django'],
-      content: ['api', 'rest', 'endpoint', 'route'],
-      build: ['npm start', 'python app.py']
-    },
-    confidence_weights: {
-      files: 0.4,
-      dependencies: 0.3,
-      content: 0.2,
-      build: 0.1
-    },
-    architecture_recommendations: ['serverless-api', 'traditional-stack'],
-    requirements: {
-      database: 'required',
-      auth: 'optional',
-      realtime: 'optional',
-      storage: 'optional'
-    }
+  vue: {
+    files: ['package.json', 'src/App.vue', 'src/main.js'],
+    dependencies: ['vue', '@vitejs/plugin-vue'],
+    content: ['<template>', 'v-if', 'v-for', 'Vue.'],
+    confidence: 0.8
   },
-  'static-site': {
-    name: 'Static Website',
-    indicators: {
-      files: ['index.html', 'style.css'],
-      dependencies: [],
-      content: ['html', 'css', 'javascript', 'static'],
-      build: []
-    },
-    confidence_weights: {
-      files: 0.5,
-      dependencies: 0.1,
-      content: 0.3,
-      build: 0.1
-    },
-    architecture_recommendations: ['static-spa'],
-    requirements: {
-      database: 'none',
-      auth: 'none',
-      realtime: 'none',
-      storage: 'none'
-    }
+  nodejs: {
+    files: ['package.json', 'server.js', 'app.js', 'index.js'],
+    dependencies: ['express', 'fastify', 'koa'],
+    content: ['app.listen', 'require(', 'module.exports'],
+    confidence: 0.7
+  },
+  python: {
+    files: ['requirements.txt', 'app.py', 'main.py', 'wsgi.py'],
+    dependencies: ['flask', 'django', 'fastapi'],
+    content: ['def ', 'import ', 'from '],
+    confidence: 0.7
+  },
+  static: {
+    files: ['index.html', 'style.css', 'script.js'],
+    dependencies: [],
+    content: ['<!DOCTYPE html>', '<html>', '<head>'],
+    confidence: 0.6
   }
 };
 
-export default defaultPatterns;
+export const architecturePatterns = {
+  'static-spa': {
+    name: 'Static SPA Hosting',
+    services: ['S3', 'CloudFront', 'Route53'],
+    cost: { min: 5, max: 25, typical: 12 },
+    complexity: 2,
+    scalability: 4
+  },
+  'serverless-api': {
+    name: 'Serverless API',
+    services: ['Lambda', 'API Gateway', 'DynamoDB'],
+    cost: { min: 10, max: 100, typical: 35 },
+    complexity: 3,
+    scalability: 5
+  },
+  'traditional-stack': {
+    name: 'Traditional Stack',
+    services: ['EC2', 'ALB', 'RDS', 'S3'],
+    cost: { min: 50, max: 300, typical: 120 },
+    complexity: 4,
+    scalability: 4
+  }
+};
+
+export default { patterns, architecturePatterns };

@@ -865,9 +865,10 @@ const AppContent = () => {
                 {state.currentStep !== 'upload' && (
                   <button
                     onClick={handleStartOver}
-                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 text-sm font-medium transition-colors"
+                    className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
                   >
-                    Start Over
+                    <Upload className="mr-2" size={16} />
+                    New Analysis
                   </button>
                 )}
                 <ThemeToggle />
@@ -892,28 +893,22 @@ const AppContent = () => {
             onStepClick={(stepId) => {
               console.log('Step clicked:', stepId);
               
-              // Handle navigation with required data checks
+              // If going back to upload, reset everything
+              if (stepId === 'upload') {
+                actions.resetState();
+                notificationActions.info('Starting new analysis');
+                return;
+              }
+              
+              // Only allow forward navigation if we have the required data
               if (stepId === 'recommendations' && !state.analysis) {
-                // If no analysis, create a mock one to allow navigation
-                const mockAnalysis = {
-                  detected: { name: 'Generic Application', appType: 'spa' },
-                  confidence: 0.8,
-                  requirements: { traffic: 'low' }
-                };
-                actions.setAnalysisResult(mockAnalysis);
+                notificationActions.warning('Please analyze your application first');
+                return;
               }
               
               if ((stepId === 'deployment' || stepId === 'costs') && !state.selectedArchitecture) {
-                // If no selected architecture, auto-select the first available one
-                const mockArchitecture = {
-                  id: 'static-spa',
-                  name: 'Static SPA Hosting',
-                  description: 'Serverless hosting for React/Vue SPAs using S3 and CloudFront',
-                  services: [],
-                  complexity: 2,
-                  cost: { min: 5, max: 25, typical: 12 }
-                };
-                actions.selectArchitecture(mockArchitecture);
+                notificationActions.warning('Please select an architecture first');
+                return;
               }
               
               actions.setStep(stepId);
