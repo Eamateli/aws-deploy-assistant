@@ -2,10 +2,9 @@
 
 An intelligent AWS deployment analyzer and recommendation engine built with React and Kiro AI.
 
-<img width="824" height="689" alt="Screenshot 2025-09-14 173345" src="https://github.com/user-attachments/assets/b5bfeeaa-78f4-41eb-8074-fbbad21d7472" />
 <img width="1069" height="690" alt="Screenshot 2025-09-14 173251" src="https://github.com/user-attachments/assets/46e2cfcd-39e5-4deb-96cd-270e392c186a" />
 <img width="911" height="655" alt="Screenshot 2025-09-14 173213" src="https://github.com/user-attachments/assets/0828b415-f1c3-4e11-9d5b-7b1bed8d0d9c" />
-<img width="550" height="611" alt="Screenshot 2025-09-14 175023" src="https://github.com/user-attachments/assets/437dda56-a53a-4925-95bf-56b550334ba2" />
+
 
 
 
