@@ -2,6 +2,15 @@
 
 An intelligent AWS deployment analyzer and recommendation engine built with React and Kiro AI.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/46e2cfcd-39e5-4deb-96cd-270e392c186a" width="600" />
+  <img src="https://github.com/user-attachments/assets/0828b415-f1c3-4e11-9d5b-7b1bed8d0d9c" width="600" />
+</p>
+
+
+
+
+
 ## Features
 
 🔍 **Smart Code Analysis** - Automatically detects React, Node.js, Vue, Python, and full-stack application patterns
@@ -21,35 +30,33 @@ An intelligent AWS deployment analyzer and recommendation engine built with Reac
 ## Getting Started
 
 ### Prerequisites
-
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository
-```bash
-git clone <repository-url>
+\`\`\`bash
+git clone https://github.com/Eamateli/aws-deploy-assistant.git
 cd aws-deploy-assistant
-```
+\`\`\`
 
 2. Install dependencies
-```bash
+\`\`\`bash
 npm install
-```
+\`\`\`
 
 3. Start the development server
-```bash
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
-4. Open [http://localhost:5173](http://localhost:5173) in your browser
+4. Open http://localhost:5173 in your browser
 
 ### Building for Production
-
-```bash
+\`\`\`bash
 npm run build
-```
+\`\`\`
 
 ## How It Works
 
@@ -61,7 +68,6 @@ npm run build
 ## Example Applications
 
 Try these example descriptions:
-
 - "React e-commerce app with shopping cart, user authentication, and payment processing using Stripe"
 - "Node.js REST API with Express, MongoDB, JWT authentication, and file upload functionality"
 - "Full-stack React app with Node.js backend, PostgreSQL database, and real-time chat features"
@@ -70,22 +76,22 @@ Try these example descriptions:
 
 ### Static SPA Hosting
 - **Services**: S3, CloudFront, Route53
-- **Cost**: $5-25/month
+- **Cost**: \$5-25/month
 - **Best for**: React/Vue SPAs, portfolios, marketing sites
 
 ### Serverless API
 - **Services**: Lambda, API Gateway, DynamoDB
-- **Cost**: $10-100/month  
+- **Cost**: \$10-100/month
 - **Best for**: REST APIs, microservices, event-driven apps
 
 ### Traditional Stack
 - **Services**: EC2, ALB, RDS, S3
-- **Cost**: $50-200/month
+- **Cost**: \$50-200/month
 - **Best for**: Full-stack apps, legacy migrations, custom requirements
 
 ### Container Platform
 - **Services**: ECS, Fargate, ALB, RDS
-- **Cost**: $75-250/month
+- **Cost**: \$75-250/month
 - **Best for**: Containerized apps, CI/CD pipelines, scalable services
 
 ## Technology Stack
@@ -98,30 +104,30 @@ Try these example descriptions:
 ## Development with Kiro
 
 This project showcases spec-driven development using Kiro AI:
-
-1. **Requirements** - Comprehensive user stories and acceptance criteria
-2. **Design** - Detailed technical architecture and component interfaces  
-3. **Implementation** - Actionable coding tasks with clear objectives
-4. **Quality** - Built-in testing and performance considerations
+- **Requirements** - Comprehensive user stories and acceptance criteria
+- **Design** - Detailed technical architecture and component interfaces
+- **Implementation** - Actionable coding tasks with clear objectives
+- **Quality** - Built-in testing and performance considerations
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create a feature branch (\`git checkout -b feature/amazing-feature\`)
+3. Commit your changes (\`git commit -m 'Add amazing feature'\`)
+4. Push to the branch (\`git push origin feature/amazing-feature\`)
 5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
-- Built with [Kiro AI](https://kiro.ai) for spec-driven development
-- AWS service information and pricing from [AWS Documentation](https://docs.aws.amazon.com)
-- Icons by [Lucide](https://lucide.dev)
+- Built with Kiro AI for spec-driven development
+- AWS service information and pricing from AWS Documentation
+- Icons by Lucide
 
----
+## Disclaimer
 
-**Disclaimer**: This tool provides estimates and guidance for AWS deployments. Always verify pricing, test deployments thoroughly, and follow AWS best practices for production applications.
+This tool provides estimates and guidance for AWS deployments. Always verify pricing, test deployments thoroughly, and follow AWS best practices for production applications.
+
